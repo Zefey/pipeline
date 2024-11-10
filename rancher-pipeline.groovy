@@ -67,12 +67,11 @@ pipeline {
     environment {
         RANCHER_URL = 'https://192.168.6.112:10443/v3'
         RANCHER_CONTEXT = 'c-m-rm6nk2dh:p-jqdhp'
+        RANCHER_CLI_VERSION = 'v2.9.0'
+        PATH = "/usr/local/bin:${env.PATH}"
         DEPLOYMENT = "${params.Deployment}"
         CONTAINER = "${params.Container}"
         DOCKER_IMAGE = "${params.DockerImage}"
-        RANCHER_CLI_VERSION = 'v2.9.0'
-        PATH = "/usr/local/bin:${env.PATH}"
-        TEMP_RANCHER_TOKEN = 'token-2n7rn:mrvhq2ljkjbnl68tfvmwxz55rvlj2m2q5qpkg5nf2djhx7xtnxkfkg'
     }
     
     stages {
@@ -92,11 +91,11 @@ pipeline {
                         Environment Details:
                         - RANCHER_URL: ${RANCHER_URL}
                         - RANCHER_CONTEXT: ${RANCHER_CONTEXT}
+                        - RANCHER_CLI_VERSION: ${RANCHER_CLI_VERSION}
+                        - PATH: ${PATH}
                         - DEPLOYMENT: ${DEPLOYMENT}
                         - CONTAINER: ${CONTAINER}
                         - DOCKER_IMAGE: ${DOCKER_IMAGE}
-                        - PATH: ${PATH}
-                        - TEMP_RANCHER_TOKEN: ${TEMP_RANCHER_TOKEN}
                     """
                 }
             }
